@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <title>Exact computation of the n-loop invariants</title>
+  <link rel="STYLESHEET" type="text/css" href="style.css">
+<!-- <body bgcolor="#f6d5c3"> 
+     <body bgcolor="#F8ECE0"> -->
+</head>
+
+
+<body bgcolor="#fff2ca">
+
+	<ul>
+	    <table>
+	      <tr>
+		<td valign="top">
+		  <ul>
+		    <li><a href="9_1.txt">9_1</a></li>
+		    <li><a href="9_2.txt">9_2</a></li>
+		    <li><a href="9_3.txt">9_3</a></li>
+		    <li><a href="9_4.txt">9_4</a></li>
+		    <li><a href="9_5.txt">9_5</a></li>
+		    <li><a href="9_6.txt">9_6</a></li>
+		    <li><a href="9_7.txt">9_7</a></li>
+		    <li><a href="9_8.txt">9_8</a></li>
+		    <li><a href="9_9.txt">9_9</a></li>
+		    <li><a href="9_10.txt">9_10</a></li>
+		    <li><a href="9_11.txt">9_11</a></li>
+		    <li><a href="9_12.txt">9_12</a></li>
+		    <li><a href="9_13.txt">9_13</a></li>
+		    <li><a href="9_14.txt">9_14</a></li>
+		    <li><a href="9_15.txt">9_15</a></li>
+		    <li><a href="9_16.txt">9_16</a></li>
+		    <li><a href="9_17.txt">9_17</a></li>
+		    <li><a href="9_18.txt">9_18</a></li>
+		    <li><a href="9_19.txt">9_19</a></li>
+		    <li><a href="9_20.txt">9_20</a></li>
+		    <li><a href="9_21.txt">9_21</a></li>
+		    <li><a href="9_22.txt">9_22</a></li>
+		    <li><a href="9_23.txt">9_23</a></li>
+		    <li><a href="9_24.txt">9_24</a></li>
+		    <li><a href="9_25.txt">9_25</a></li>
+		    <li><a href="9_26.txt">9_26</a></li>
+		    <li><a href="9_27.txt">9_27</a></li>
+		    <li><a href="9_28.txt">9_28</a></li>
+		    <li><a href="9_29.txt">9_29</a></li>
+		    <li><a href="9_30.txt">9_30</a></li>
+		    <li><a href="9_31.txt">9_31</a></li>
+		    <li><a href="9_32.txt">9_32</a></li>
+		    <li><a href="9_33.txt">9_33</a></li>
+		    <li><a href="9_34.txt">9_34</a></li>
+		    <li><a href="9_35.txt">9_35</a></li>
+		    <li><a href="9_36.txt">9_36</a></li>
+		    <li><a href="9_37.txt">9_37</a></li>
+		    <li><a href="9_38.txt">9_38</a></li>
+		    <li><a href="9_39.txt">9_39</a></li>
+		    <li><a href="9_40.txt">9_40</a></li>
+		    <li><a href="9_41.txt">9_41</a></li>
+		    <li><a href="9_42.txt">9_42</a></li>
+		    <li><a href="9_43.txt">9_43</a></li>
+		    <li><a href="9_44.txt">9_44</a></li>
+		    <li><a href="9_45.txt">9_45</a></li>
+		    <li><a href="9_46.txt">9_46</a></li>
+		    <li><a href="9_47.txt">9_47</a></li>
+		    <li><a href="9_48.txt">9_48</a></li>
+		    <li><a href="9_49.txt">9_49</a></li>
+		  </ul>
+		</td>
+	      </tr>
+	    </table>
+           </ul>
+
+<p>
+
+</html>

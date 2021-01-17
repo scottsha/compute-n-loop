@@ -1,0 +1,26 @@
+Census Knots
+  2T: done
+  3T: done
+  4T: done
+  5T: done
+  6T: need 4,5
+  7T: need 4
+  8T: done
+
+Link Exteriors
+  2T: need 1-6
+  3T: need 1-6
+  4T: need 1-6
+  5T: need 1-5 for most, just 5 for a few
+  6T: need 1-5 for most, just 5 for a few
+  7T: need 1-4 for most, others done
+  8T: need 1-4 for most, others done
+
+HTLink Exteriors
+  2T: need 1-6
+  3T: need 1-6
+  4T: need 1-6
+  5T: need 1-5
+  6T: need 1-5
+  7T: need 1-4
+  8T: need 1-4

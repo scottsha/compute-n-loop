@@ -1,0 +1,32 @@
+# AUTOMATED USAGE FROM MANIFOLD
+
+from snappy import *
+attach('nz_exact_all.py')
+load('nz_exact_all.py')
+all_diagrams = load('data_precomputed_diagrams/6diagrams.sobj')
+M = Manifold('6_2')
+nloop_from_manifold(M, 2, all_diagrams)
+
+# AUTOMATIC USAGE FROM PRECOMPUTED DATA
+
+from snappy import *
+attach('nz_exact_all.py')
+load('nz_exact_all.py')
+all_diagrams = load('data_precomputed_diagrams/6diagrams.sobj')
+nz62 = load('nzdata/nz_exact_K5_19.sobj')
+nloop_from_nzdatum(nz62, 2, all_diagrams)
+
+# MANUAL USAGE
+
+from snappy import *
+attach('nz_exact_all.py')
+load('nz_exact_all.py')
+all_diagrams = load('data_precomputed_diagrams/6diagrams.sobj')
+M = Manifold('6_2')
+D = NeumannZagierDatum(M)
+D.generate_nz_data()
+E = nloop(D.nz, 2, all_diagrams)
+E.nloop_invariant()
+E.one_loop()
+
+

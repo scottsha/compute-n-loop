@@ -1,0 +1,86 @@
+Pylint - Code analysis for Python:
+
+Basic:
+pylint mymodule.py
+or
+pylint-gui
+
+Full documentation:
+http://docs.pylint.org/
+
+
+
+
+
+PEP 8 - Python style guide checker:
+
+Basic:
+pep8 --first optparse.py
+
+You can also make pep8.py show the source code for each error, and even the relevant text from PEP 8:
+pep8 --show-source --show-pep8 testsuite/E40.py
+
+Or you can display how often each error was found:
+pep8 --statistics -qq Python-2.5/Lib
+
+
+
+
+
+PEP 257 - Docstring style checker:
+
+Basic:
+pep257 test.py
+
+Show explanation of error:
+pep257 test.py --explain
+
+Show location of error:
+pep257 test.py --source
+
+
+All **pep257** errors have unique codes. All codes start with a capital D and
+are grouped as follows:
+
++--------------------------------------------------------------+
+| **Missing docstrings**                                                      |
++--------------------------------------------------------------+
+| D10{0,1,2,3} | Public {module,class,method,function} missing.               |
++--------------------------------------------------------------+
+| **Whitespace issues**                                                       |
++--------------------------------------------------------------+
+| D200         | One-line docstrings should fit on one line with 
+|		 quotes.
++--------------------------------------------------------------+
+| D20{1,2}     | No blank lines allowed {before,after} docstring.             |
++--------------------------------------------------------------+
+| D20{3,4}     | 1 blank required {before,after} class docstring.             |
++--------------------------------------------------------------+
+| D205         | Blank line required between one-line summary and 
+|		 description.
++--------------------------------------------------------------+
+| D206         | Docstring should be indented with spaces, not 
+|		 tabs.
++--------------------------------------------------------------+
+| D20{7,8}     | Docstring {under,over}-indented.                             |
++--------------------------------------------------------------+
+| D209         | Put multi-line docstring closing quotes on 
+|		 separate line.
++--------------------------------------------------------------+
+| **Quotes issues**                                                           |
++--------------------------------------------------------------+
+| D300         | Use """triple double quotes""".                              |
++--------------------------------------------------------------+
+| D301         | Use r""" if any backslashes in your docstring.               |
++--------------------------------------------------------------+
+| D302         | Use u""" for Unicode docstrings (Python 2 only).             |
++--------------------------------------------------------------+
+| **Docstring content issues**                                                |
++--------------------------------------------------------------+
+| D400         | First line should end with a period.                         |
++--------------------------------------------------------------+
+| D401         | First line should be in imperative mood.                     |
++--------------------------------------------------------------+
+| D402         | First line should not be the function's 
+|		 "signature".
++--------------------------------------------------------------+

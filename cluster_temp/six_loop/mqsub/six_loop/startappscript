@@ -1,0 +1,6 @@
+#!/bin/bash
+module purge
+module load sage/6.3
+cat ${1}
+
+sage -q /nv/hp24/esabo3/scratch/six_loop/six_loops.py $(cat ${1})

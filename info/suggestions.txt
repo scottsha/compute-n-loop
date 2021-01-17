@@ -1,0 +1,240 @@
+def onetwo(x):
+    '''Return 1 if argument is 1 or 2 and 0 else'''
+    return kronecker_delta(x,1)+kronecker_delta(x,2)
+
+def ber(m):
+    '''Return bernoulli number with convention B1=+1/2'''
+    return bernoulli(m)*(-1)^m
+
+def polylogarithm(n,z):
+    '''Give the nth polylogarithm evaluated at z: polylogarithm(n,z)'''
+    p=gp(polylog(n,x))
+    return gp.subst(p,x,z)
+
+pari commands
+? a=Mod(x,x^3-x^2+1)
+? A=[a,a^2;a^3,a^5]
+? matadjoint(A)/matdet(A) \\ the inverse of A
+
+sage-pari commands
+sage: a=gp.Mod(x,x^3-x^2+1)
+sage: A=gp('[x,x^2;x^3,x^5]')
+sage: B=gp.subst(A,x,a)
+sage: gp.matadjoint(B)/gp.matdet(B)
+sage: 1/B  # works!
+
+sage commands
+sage: K.<x> = NumberField(x^4 - 420*x^2 + 13)
+sage: R.<h> = LaurentPolynomialRing(K)
+sage: p=x^5*h^(-4)+x^4*h^2+(13*x^5+x^7)*h
+sage: p
+(420*x^2 - 13)*h^2 + (181847*x^3 - 5629*x)*h + (420*x^3 - 13*x)*h^-4
+sage: q=p*h^(-1)
+sage: q.constant_coefficient()
+181847*x^3 - 5629*x
+sage: A=matrix(R,2,2,[x,x^2,x^3,x^5])
+[             x            x^2]
+[           x^3 420*x^3 - 13*x]
+sage: A.inverse()
+[(74077080*x^2 - 2293031)/(74077080*x^3 - 74077080*x^2 - 2293031*x + 2293031)                             (-x^3)/(176387*x^3 - 176387*x^2 - 5460*x + 5460)]
+[                   (-420*x^2 + 13)/(176387*x^3 - 176387*x^2 - 5460*x + 5460)                                      x/(-420*x^3 + 176387*x^2 + 13*x - 5460)]
+
+CONVERT A GP-ALGERBAIC NUMBER INTO A SAGE ONE
+
+sage: a = gp.Mod("x^2/3-71/81", "x^3-x^2+1")
+sage: K.<x> = NumberField(x^3-x^2+1)
+sage: b=K(repr(a.lift()))
+sage: b
+1/3*x^2 - 71/81
+
+works as well as
+
+sage: a = gp.Mod(x^2/3-71/81, x^3-x^2+1)
+sage: K.<y> = NumberField(x^3-x^2+1)
+sage: b=K(str(a.lift()).replace('x','y'))
+sage: b
+1/3*y^2 - 71/81
+
+This requires that we copy the polynomial x^3-x^2+1 for the definition of the
+number field by hand.
+
+We can also do:
+
+sage: a=gp.Mod(3*x^2-2*x,x^3-x^2+1)
+sage: S.<x>=PolynomialRing(QQ)
+sage: b=a.lift()
+sage: c=S(str(b))
+sage: c
+3*x^2 - 2*x
+sage: c.parent()
+Univariate Polynomial Ring in x over Rational Field
+
+and also:
+
+sage: a=gp.Mod(3*x^2-2*x,x^3-x^2+1)
+sage: R.<w>=PolynomialRing(QQ)
+sage: b=a.lift()
+sage: c=R(str(b).replace('x','w'))
+sage: c
+3*w^2 - 2*w
+sage: c.parent()
+Univariate Polynomial Ring in w over Rational Field
+
+CONVERT NZ GP-SHAPES TO NZ SAGE-SHAPES
+
+def nz_to_sage(nz_data):
+    (A, B, nu, f, ffdot, [p, shapes]) = nz_data
+    S = PolynomialRing(QQ,'x')
+    K = NumberField(S(str(p)),'y')
+    new_shapes = [K(str(s.lift()).replace('x','y')) for s in shapes]
+    return (A, B, nu, f, ffdot, new_shapes)
+
+def nf_to_sage(p, number):
+    K = NumberField(p,'x')
+    return K(str(number))
+
+example: cut-and-paste the above nf_to_sage in sage, or attach it as a .py file
+
+sage: p=x^3-x^2+1
+sage: nf_to_sage(p,1/x^10)
+5*x^2 - 9*x + 7
+
+and also
+
+sage: var('y')
+sage: s=str(1/y^5).replace('y','x')
+sage: nf_to_sage(p,s)
+-x^2 + 2*x - 2
+
+and also
+
+sage: nz=load('nzdata/nz_exact_61a.sobj')
+sage: nz
+(
+[ 1 -1  1  1]  [1 0 1 0]                                          
+[ 0  1  0 -1]  [0 1 1 0]                                          
+[ 1 -1  1  0]  [0 0 2 0]                                          
+[ 1 -1  0  1], [0 0 0 1], (2, 1, 2, 1), (2, 1, 1, 0), (0, 0, 0, 0),
+
+x^4 - 2*x^3 + x^2 + 3*x + 1, [-2*y^3 + 5*y^2 - 5*y - 3, -3/2*y^3 + 7/2*y^2 - 3*y - 5/2, -1/2*y^3 + 3/2*y^2 - 2*y + 1/2, 1/2*y^3 - 3/2*y^2 + y + 3/2]
+)
+sage:z=[nf_to_sage(nz[5],str(v).replace('y','x')) for v in nz[6]]
+sage: z
+[-2*x^3 + 5*x^2 - 5*x - 3,
+ -3/2*x^3 + 7/2*x^2 - 3*x - 5/2,
+ -1/2*x^3 + 3/2*x^2 - 2*x + 1/2,
+ 1/2*x^3 - 3/2*x^2 + x + 3/2]
+sage: z0=z[0]
+sage: attach polylogs.py
+sage: useful_polylogs(-10,z0)
+1046011*x^3 - 3199892*x^2 + 4079941*x - 168747
+
+Or simply:
+
+sage: nz=load('nzdata/nz_exact_61a.sobj')
+sage: p=nz[5]
+sage: p
+x^4 - 2*x^3 + x^2 + 3*x + 1
+sage: K=NumberField(p,'x')
+sage: z=[K(str(v).replace('y','x')) for v in nz[6]]
+sage: z
+[-2*x^3 + 5*x^2 - 5*x - 3,
+ -3/2*x^3 + 7/2*x^2 - 3*x - 5/2,
+ -1/2*x^3 + 3/2*x^2 - 2*x + 1/2,
+ 1/2*x^3 - 3/2*x^2 + x + 3/2]
+sage: z0=z[0]
+sage: attach polylogs.py
+sage: useful_polylogs(-10,z0)
+1046011*x^3 - 3199892*x^2 + 4079941*x - 168747
+
+POLYLOGS AND NUMBER FIELDS
+
+sage: attach polylogs.py
+sage: p=x^3-x^2+1
+sage: K.<y> = NumberField(p)
+sage: polylog_dict[2]
+z_poly/(z_poly^2 - 2*z_poly + 1)
+sage: K(str(polylog_dict[2]).replace('z_poly','y'))
+-y -1
+
+works as well as
+
+sage: attach polylogs.py
+sage: p=x^3-x^2+1
+sage: K.<x> = NumberField(p)
+sage: polylog_dict[2]
+z_poly/(z_poly^2 - 2*z_poly + 1)
+sage: K(str(polylog_dict[2]).replace('z_poly','x'))
+-x - 1
+
+EXAMPLES OF EXACT COMPUTATIONS IN SAGE
+
+1. sage: z=gp('Mod(x, x^4 + x^2 - x + 1)')
+
+gives a well-defined algebraic integer x which is a root of the irreducible polynomial x^4 + x^2 - x + 1.
+
+2. Having defined z as above, then usual arithmetic of algebraic numbers works:
+
+sage: z^3-4/(z^5+3*z^3+1)
+Mod(47/19*x^3 + 56/19*x^2 + 64/19*x + 24/19, x^4 + x^2 - x + 1)
+
+3. pari has predefined (and well-behaved) polylogarithms:
+sage: p=gp('polylog(-2,x)')
+(x^2 + x)/(-x^3 + 3*x^2 - 3*x + 1)
+
+which work with arithmetic in the number field defined by z:
+
+sage: gp.subst(p,x,1-z)
+Mod(2*x^3 + x^2 - 1, x^4 + x^2 - x + 1)
+
+4. Given this, it should be possible to create feynman_diagrams_exact.py
+that takes as input exact values of the NZ shapes.
+
+TIME
+
+sage: %time vertex_factor_tensor(nz52a,5,False);
+CPU times: user 58.73 s, sys: 0.19 s, total: 58.91 s
+Wall time: 64.42 s
+
+PARI ISOMORPHISM OF NUMBER FIELDS
+
+sage: nza = load('nzdata/nz_exact_62.sobj')
+sage: nzb = load('nzdata/nz_exact_62can.sobj')
+sage: pa, pb = nza[5], nzb[5]
+sage: sage: [pa, pb]
+[x^5 - 2*x^4 - x^3 + 4*x^2 + 4*x + 1, x^5 - 4*x^3 + 5*x^2 - 2*x + 1]
+sage: K.<a> = NumberField(pa)
+sage: L.<b> = NumberField(pb)
+sage: gp.nfisisom(pa,pb)
+[-2/5*x^4 - 1/5*x^3 + 2*x^2 - 1/5]
+sage: gp.nfisisom(pb,pa)
+[-4*x^4 + 10*x^3 - x^2 - 15*x - 8]
+sage: K.is_isomorphic(L)
+True
+sage: sage: K.discriminant().factor()
+1777
+
+sage: K.embeddings(L)
+[
+Ring morphism:
+  From: Number Field in a with defining polynomial x^5 - 2*x^4 - x^3 + 4*x^2 + 4*x + 1
+  To:   Number Field in b with defining polynomial x^5 - 4*x^3 + 5*x^2 - 2*x + 1
+  Defn: a |--> -2/5*b^4 - 1/5*b^3 + 2*b^2 - 1/5
+]
+
+sage: L.embeddings(K)
+[
+Ring morphism:
+  From: Number Field in b with defining polynomial x^5 - 4*x^3 + 5*x^2 - 2*x + 1
+  To:   Number Field in a with defining polynomial x^5 - 2*x^4 - x^3 + 4*x^2 + 4*x + 1
+  Defn: b |--> -4*a^4 + 10*a^3 - a^2 - 15*a - 8
+]
+
+sage: f=K.embeddings(L)[0]
+sage: g=L.embeddings(K)[0]
+
+sage: f.preimage(b^3)
+-22*a^4 + 54*a^3 - 2*a^2 - 87*a - 49
+
+ssage: g.preimage(1/(a^2+a))
+-3/5*b^4 - 4/5*b^3 + 2*b^2 + b - 14/5

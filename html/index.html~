@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Exact computation of the n-loop invariants</title>
+</head>
+
+<body bgcolor="#fff2ca">
+<h1>Exact computation of the n-loop invariants</h1>
+
+
+<ul>
+<li type=disc> 
+<a href="README.txt">README.txt</a></li>
+<li type=disc> 
+<a href="http://people.math.gatech.edu/~esabo3/knot-data.html">
+Math-ML and latex</a></li>
+<li type=disc> 
+<a href="src/index.html">src</a></li>
+<li type=disc> Data
+	<ul>
+	  <li>CensusKnots (<a href="http://www.math.uic.edu/t3m/SnapPy/censuses.html#snappy.OrientableCuspedCensus">explanation</a>)
+	    <table>
+	      <tr>
+		<td valign="top">
+		  <ul>
+		    <li><a href="CensusKnots/02_tetrahedra/index.html">2 tetrahedra</a></li>
+		    <li><a href="CensusKnots/03_tetrahedra/index.html">3 tetrahedra</a></li>
+		    <li><a href="CensusKnots/04_tetrahedra/index.html">4 tetrahedra</a></li>
+		    <li><a href="CensusKnots/05_tetrahedra/index.html">5 tetrahedra</a></li>
+		  </ul>
+		</td>
+		<td valign="top">
+		  <ul>
+		    <li><a href="CensusKnots/06_tetrahedra/index.html">6 tetrahedra</a></li>
+		    <li><a href="CensusKnots/07_tetrahedra/index.html">7 tetrahedra</a></li>
+		    <li><a href="CensusKnots/08_tetrahedra/index.html">8 tetrahedra</a></li>
+		  </ul>
+		</td>
+	      </tr>
+	    </table>
+	  </li>
+	  <li>Rolfsen Knots (<a href="http://www.math.uic.edu/t3m/SnapPy/censuses.html#snappy.OrientableCuspedCensus">explanation</a>)
+	    <table>
+	      <tr>
+		<td valign="top">
+		  <ul>
+		    <li><a href="RolfsenKnots/04_crossings/index.html">4 tetrahedra</a></li>
+		    <li><a href="RolfsenKnots/05_crossings/index.html">5 tetrahedra</a></li>
+		    <li><a href="RolfsenKnots/06_crossings/index.html">6 tetrahedra</a></li>
+		    <li><a href="RolfsenKnots/07_crossings/index.html">7 tetrahedra</a></li>
+		  </ul>
+		</td>
+		<td valign="top">
+		  <ul>
+		    <li><a href="RolfsenKnots/08_crossings/index.html">8 tetrahedra</a></li>
+		    <li><a href="RolfsenKnots/09_crossings/index.html">9 tetrahedra</a></li>
+		    <li><a href="RolfsenKnots/10_crossings/index.html">10 tetrahedra</a></li>
+		  </ul>
+		</td>
+	      </tr>
+	    </table>
+	  </li>
+<!--
+	  <li>LinkExteriors (<a href="http://www.math.uic.edu/t3m/SnapPy/censuses.html#snappy.LinkExteriors">explanation</a>)
+	    <table>
+	      <tr>
+		<td valign="top">
+		  <ul>
+		    <li><a href="LinkExteriors/02_tetrahedra/index.html">2 tetrahedra</a></li>
+		    <li><a href="LinkExteriors/03_tetrahedra/index.html">3 tetrahedra</a></li>
+		    <li><a href="LinkExteriors/04_tetrahedra/index.html">4 tetrahedra</a></li>
+		    <li><a href="LinkExteriors/05_tetrahedra/index.html">5 tetrahedra</a></li>
+		    <li><a href="LinkExteriors/06_tetrahedra/index.html">6 tetrahedra</a></li>
+		    <li><a href="LinkExteriors/07_tetrahedra/index.html">7 tetrahedra</a></li>
+		    <li><a href="LinkExteriors/08_tetrahedra/index.html">8 tetrahedra</a></li>
+		    <li><a href="LinkExteriors/09_tetrahedra/index.html">9 tetrahedra</a></li>
+		  </ul>
+		</td>
+		<td valign="top">
+		  <ul>
+		    <li><a href="LinkExteriors/10_tetrahedra/index.html">10 tetrahedra</a></li>
+		    <li><a href="LinkExteriors/11_tetrahedra/index.html">11 tetrahedra</a></li>
+		    <li><a href="LinkExteriors/12_tetrahedra/index.html">12 tetrahedra</a></li>
+		    <li><a href="LinkExteriors/13_tetrahedra/index.html">13 tetrahedra</a></li>
+		    <li><a href="LinkExteriors/14_tetrahedra/index.html">14 tetrahedra</a></li>
+		    <li><a href="LinkExteriors/15_tetrahedra/index.html">15 tetrahedra</a></li>
+		    <li><a href="LinkExteriors/16_tetrahedra/index.html">16 tetrahedra</a></li>
+		  </ul>
+		</td>
+	      </tr>
+	    </table>
+	  </li>
+	  <li>HTLinkExteriors (<a href="http://www.math.uic.edu/t3m/SnapPy/censuses.html#snappy.HTLinkExteriors">explanation</a>)
+	    <table>
+	      <tr>
+		<td valign="top">
+		  <ul>
+		    <li><a href="HTLinkExteriors/02_tetrahedra/index.html">2 tetrahedra</a></li>
+		    <li><a href="HTLinkExteriors/03_tetrahedra/index.html">3 tetrahedra</a></li>
+		    <li><a href="HTLinkExteriors/04_tetrahedra/index.html">4 tetrahedra</a></li>
+		    <li><a href="HTLinkExteriors/05_tetrahedra/index.html">5 tetrahedra</a></li>
+		    <li><a href="HTLinkExteriors/06_tetrahedra/index.html">6 tetrahedra</a></li>
+		    <li><a href="HTLinkExteriors/07_tetrahedra/index.html">7 tetrahedra</a></li>
+		  </ul>
+		</td>
+		<td valign="top">
+		  <ul>
+		    <li><a href="HTLinkExteriors/08_tetrahedra/index.html">8 tetrahedra</a></li>
+		    <li><a href="HTLinkExteriors/09_tetrahedra/index.html">9 tetrahedra</a></li>
+		    <li><a href="HTLinkExteriors/10_tetrahedra/index.html">10 tetrahedra</a></li>
+		    <li><a href="HTLinkExteriors/11_tetrahedra/index.html">11 tetrahedra</a></li>
+		    <li><a href="HTLinkExteriors/12_tetrahedra/index.html">12 tetrahedra</a></li>
+		  </ul>
+		</td>
+	      </tr>
+	    </table>
+	  </li>
+-->
+	</ul>
+
+<p>
+
+</body>
+</html>

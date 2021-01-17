@@ -1,0 +1,53 @@
+from __future__ import print_function
+from sage.all import *
+import re
+
+bottomdir=[('/CensusKnots/', 2), ('/HTLinkExteriors/', 3), ('/RolfsenKnots/', 3)]
+for bot,low in bottomdir:
+    for foo in range(low,10):
+        indexdir='../html'+bot+'0'+str(foo)+'_'
+        if bot=='/CensusKnots/':
+            indexdir+='tetrahedra/'
+        else:
+            indexdir+='crossings/'
+        htmlindex = open(indexdir+'index.html','w')
+        print('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">',file=htmlindex)
+        print('<html>',file=htmlindex)
+        print('<head>',file=htmlindex)
+        print('<title>Exact computation of the n-loop invariants</title>',file=htmlindex)
+        print('<link rel="STYLESHEET" type="text/css" href="style.css">',file=htmlindex)
+        print('<!-- <body bgcolor="#f6d5c3"> ',file=htmlindex)
+        print('     <body bgcolor="#F8ECE0"> -->',file=htmlindex)
+        print('</head>',file=htmlindex)        
+        print('<li><a href="../../index.html">Parent Directory</a></li>',file=htmlindex)
+        print('<body bgcolor="#fff2ca">',file=htmlindex)
+        print('	<ul>',file=htmlindex)
+        print('	    <table>',file=htmlindex)
+        print('	      <tr>',file=htmlindex)
+        print('		<td valign="top">',file=htmlindex)
+        print('		  <ul>',file=htmlindex)
+        for dirpath, dirnames, filenames in os.walk(indexdir):
+            themfiles = [f for f in filenames if f.endswith('.txt')]
+            if bot=='/HTLinkExteriors/':
+                filelines = [( '<li><a href=\''+f+'\'>'+f.split('_i')[0]+'</a></li>',
+                               re.split('(\d+)',f)[2] , 
+                               int( re.split('(\d+)',f)[3])  
+                             ) for f in themfiles] 
+                filelines = sorted(filelines, key=lambda f: (f[1],f[2]))
+                filelines = [f[0] for f in filelines]
+            else:
+                filelines = [('<li><a href=\''+f+'\'>'+f.split('_i')[0]+'</a></li>',int(f.split('_')[1]))  for f in themfiles]
+                filelines = sorted(filelines, key=lambda f: f[1])
+                filelines = [f[0] for f in filelines]
+            for fi in filelines:
+                print( fi ,file=htmlindex)
+        print('  		</ul>',file=htmlindex)
+        print('		</td>',file=htmlindex) 
+        print('	      </tr>',file=htmlindex)
+        print('	    </table>',file=htmlindex)
+        print('           </ul>',file=htmlindex)
+        print('<p>',file=htmlindex)
+        print('</html>',file=htmlindex)
+        htmlindex.close()
+
+

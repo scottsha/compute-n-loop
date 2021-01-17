@@ -1,0 +1,4 @@
+#PBS -l nodes=5:ppn=10
+#PBS -l pmem=15GB
+#PBS -q math-6
+#PBS -l walltime=02:00:00:00
